@@ -1,34 +1,42 @@
 #include <stdio.h>
-#include <ctype.h> // ctype.h --> header file which manages case conversion, upper to lower vice versa
 #include <conio.h>
-
 int main()
 {
-	char ch;
+	int month,year;
+	//Array of month names with an empty string at index 0
+	const char *monthNames[] = { "", "January", "Feburary", "March", "April", "May", "June", "July", "August", "Septmeber", "Octuber", "November", "December" };
+
+	printf("Enter month number (1-12): \n");
+	scanf("%d",&month);
+	printf("Enter year: \n");
+	scanf("%d",&year);
 	
-	printf("Enter a character: ");
-	scanf("%c",&ch);
-	
-	if(!isalpha(ch)) //isalpha checks the ASCII code and compares the value,so A=65,when i enter A it compares ascii value with 65...
+	switch(month)
 	{
-		printf("It is not a chatracter! \n");
-	}
-	else // in else I can write statements like switch,variable declrartion...
-{
-    
-	char letter = tolower(ch);
-	
-	switch (letter)
-	{
-		case 'a': case 'e': case 'i': case 'o': case 'u':
-		printf("%c is a Vowel \n",letter);
-		break;
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 12:
+			printf("%s of %d has 31 days",monthNames[month],year);
+			break;
 		
-		default: // when i enter oyher than vowel it still compares it with assigned ascii code and print as consonant....
-			printf("%c is a consonat\n",letter);
-	}
-}  
+	       case 4:
+	       case 6:
+	       case 9:
+	       case 11:
+	              printf("%s of %d has 30 days",monthNames[month],year);
+	              break;
+	       case 2:
+	       	if(year%4==0 && year%100!=0 || year%400==0)
+	       	{
+	       		printf("%s of %d has 29 days",monthNames[month],year);
+			}
+			break;
+		default:
+			printf("Error! Invalid month number");
+       }
 	getch();
 	return 0;
 }
-
