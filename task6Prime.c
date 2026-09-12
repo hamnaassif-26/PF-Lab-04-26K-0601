@@ -73,5 +73,7 @@ int main()
 	}
 	}
 	while (Choice!=4);
+	getch();
 	return 0;
+	
 }
