@@ -26,7 +26,7 @@ int main()
 		break;
 		
 		default:
-			printf("%c is a consonat\n",letter);
+			printf("%c is a consonant\n",letter);
 	}
     }  
 	getch();
